@@ -2,15 +2,23 @@
 
     // var cityName =Portland;
     // var weather = $(this).attr("data-name");
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + "Portland" + "&appid=546de1fd66b329cf4085b588c55671b8";
+
 var queryURLTwo = " https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid=546de1fd66b329cf4085b588c55671b8";
-var queryURLThree = "http://api.openweathermap.org/data/2.5/forecast?q=Salem,,OR&appid=546de1fd66b329cf4085b588c55671b8";
+
 
     console.log(queryURLTwo);
 
     
     // Provides today's weather information
-    function getCurrentWeather(){
+    $("#find-city").on("click", function(event){
+        var city = $("#city-input").val();
+        event.preventDefault();  
+         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=546de1fd66b329cf4085b588c55671b8";
+         
+            
+        console.log(queryURL);
+        console.log(city);
+
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -18,14 +26,14 @@ var queryURLThree = "http://api.openweathermap.org/data/2.5/forecast?q=Salem,,OR
     
             $(".temperatureToday").html("<h3>" + "Temperature:  " + response.main.temp + "</h3>");
             $(".humidity").html("<h3>" + "Humidity: " + response.main.humidity + "</h3>");
-            $(".windSpeed").html("<h3>" + "Wind Speed: " + response.weather[0].icon+ "</h3>");
-            // console.log(response);
-            // console.log(response.wind.speed);
+            $(".windSpeed").html("<h3>" + "Wind Speed: " + response.wind.speed+ "</h3>");
+            console.log(response);
+            
         });
+    
+});
+    
 
-      
-    }
-    getCurrentWeather();
     // Provides the UV Index
     function getUvIndex() {
 
@@ -39,7 +47,12 @@ var queryURLThree = "http://api.openweathermap.org/data/2.5/forecast?q=Salem,,OR
     }
     getUvIndex();
 
-    function fiveDayForecast() {
+// Five Day Forecast
+$("#find-city").on("click", function(event){
+    var city = $("#city-input").val();
+        event.preventDefault(); 
+    var queryURLThree = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=546de1fd66b329cf4085b588c55671b8";
+    
         $.ajax({
             url: queryURLThree,
             method: "Get"
@@ -51,13 +64,8 @@ var queryURLThree = "http://api.openweathermap.org/data/2.5/forecast?q=Salem,,OR
             $(".dayFour").html("<h3>" + response.list[25].dt_txt + "</h3>");
             $(".dayFive").html("<h3>" + response.list[33].dt_txt + "</h3>");
 
-            console.log(response);
-            console.log(response.list[0]);
 
         });
 
-    }
-    fiveDayForecast();
-
-
+});
 
