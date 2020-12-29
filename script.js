@@ -6,14 +6,15 @@
 var queryURLTwo = " https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid=546de1fd66b329cf4085b588c55671b8";
 
 
-    console.log(queryURLTwo);
+    alert(queryURLTwo);
 
     
     // Provides today's weather information
     $("#find-city").on("click", function(event){
+        alert('hi');
         var city = $("#city-input").val();
         event.preventDefault();  
-         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=546de1fd66b329cf4085b588c55671b8";
+         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=546de1fd66b329cf4085b588c55671b8";
          
             
         console.log(queryURL);
@@ -51,7 +52,7 @@ var queryURLTwo = " https://api.openweathermap.org/data/2.5/onecall?lat=33.44179
 $("#find-city").on("click", function(event){
     var city = $("#city-input").val();
         event.preventDefault(); 
-    var queryURLThree = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=546de1fd66b329cf4085b588c55671b8";
+    var queryURLThree = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=546de1fd66b329cf4085b588c55671b8";
     
         $.ajax({
             url: queryURLThree,
