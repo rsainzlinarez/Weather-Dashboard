@@ -49,7 +49,7 @@ function weatherInformation(){
             url: queryURL,
             method: "GET"
          }).then(function(response) {
-             $(".currentCity").html("<h3>" + "Current City: " + response.name + "</h3>");
+             $(".currentCity").html("<h3>"  + response.name + "</h3>");
             $(".temperatureToday").html("<h3>" + "Temperature:  " + response.main.temp + "</h3>");
             $(".humidity").html("<h3>" + "Humidity: " + response.main.humidity + "</h3>");
             $(".windSpeed").html("<h3>" + "Wind Speed: " + response.wind.speed+ "</h3>");
@@ -124,7 +124,8 @@ $.ajax({
         url: queryURL,
         method: "GET"
      }).then(function(response) {
-         $(".currentCity").html("<h3>" + "Current City: " + response.name + "</h3>");
+
+         $(".currentCity").html("<h3>" + response.name + "</h3>");
         $(".temperatureToday").html("<h3>" + "Temperature:  " + response.main.temp + "</h3>");
         $(".humidity").html("<h3>" + "Humidity: " + response.main.humidity + "</h3>");
         $(".windSpeed").html("<h3>" + "Wind Speed: " + response.wind.speed+ "</h3>");
@@ -140,7 +141,9 @@ $.ajax({
         url: queryURLThree,
         method: "Get"
     }).then(function(response) {
-        $(".dayOne").html("<h3>" + response.list[1].dt_txt + "</h3>");
+        console.log(response);
+        // $(".dayOne").html("<h3>" + response.list[1].dt_txt + "</h3>");
+        $(".dayOne").html(`<h3>${response.list[1].dt_txt}</h3>`);
         $(".dayTwo").html("<h3>" + response.list[9].dt_txt + "</h3>");
         $(".dayThree").html("<h3>" + response.list[17].dt_txt + "</h3>");
         $(".dayFour").html("<h3>" + response.list[25].dt_txt + "</h3>");
