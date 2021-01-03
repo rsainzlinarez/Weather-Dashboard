@@ -49,8 +49,8 @@ function weatherInformation(){
             url: queryURL,
             method: "GET"
          }).then(function(response) {
-             $(".currentCity").html("<h3>"  + response.name + "</h3>");
-            $(".temperatureToday").html("<h3>" + "Temperature:  " + response.main.temp + "</h3>");
+             $(".currentCity").html("<h4>"  + response.name + "</h4>");
+            $(".temperatureToday").html("<h4>" + "Temperature:  " + response.main.temp + "</h4>");
             $(".humidity").html("<h3>" + "Humidity: " + response.main.humidity + "</h3>");
             $(".windSpeed").html("<h3>" + "Wind Speed: " + response.wind.speed+ "</h3>");
             // console.log(response);
@@ -65,11 +65,29 @@ function weatherInformation(){
         url: queryURLThree,
         method: "Get"
     }).then(function(response) {
-        $(".dayOne").html("<h3>" + response.list[1].dt_txt + "</h3>");
-        $(".dayTwo").html("<h3>" + response.list[9].dt_txt + "</h3>");
-        $(".dayThree").html("<h3>" + response.list[17].dt_txt + "</h3>");
-        $(".dayFour").html("<h3>" + response.list[25].dt_txt + "</h3>");
-        $(".dayFive").html("<h3>" + response.list[33].dt_txt + "</h3>");
+        $(".dateOne").html("<h3>" + response.list[1].dt_txt + "</h3>");
+        $(".humidityOne").html("<h3>" + "Humidity:  " + response.list[1].main.humidity + "%" + "</h3>");
+        $(".tempOne").html("<h3>" + "Temp:  " + response.list[1].main.temp + "</h3>");
+
+        $(".dateTwo").html("<h3>" + response.list[9].dt_txt + "</h3>");
+        $(".humidityTwo").html("<h3>" + "Humidity:  " + response.list[9].main.humidity + "%" + "</h3>");
+        $(".tempTwo").html("<h3>" + "Temp:  " + response.list[9].main.temp + "</h3>");
+
+        $(".dateThree").html("<h3>" + response.list[17].dt_txt + "</h3>");
+        $(".humidityThree").html("<h3>" + "Humidity:  " + response.list[17].main.humidity + "%" + "</h3>");
+        $(".tempThree").html("<h3>" + "Temp:  " + response.list[17].main.temp + "</h3>");
+        
+        
+        $(".dateFour").html("<h3>" + response.list[25].dt_txt + "</h3>");
+        $(".humidityFour").html("<h3>" + "Humidity:  " + response.list[25].main.humidity + "%" + "</h3>");
+        $(".tempFour").html("<h3>" + "Temp:  " + response.list[25].main.temp + "</h3>");
+       
+
+        $(".dateFive").html("<h3>" + response.list[33].dt_txt + "</h3>");
+        $(".humidityFive").html("<h3>" + "Humidity:  " + response.list[33].main.humidity + "%" + "</h3>");
+        $(".tempFive").html("<h3>" + "Temp:  " + response.list[33].main.temp + "</h3>");
+      
+      
     });
 }
 
@@ -142,12 +160,28 @@ $.ajax({
         method: "Get"
     }).then(function(response) {
         console.log(response);
-        // $(".dayOne").html("<h3>" + response.list[1].dt_txt + "</h3>");
-        $(".dayOne").html(`<h3>${response.list[1].dt_txt}</h3>`);
-        $(".dayTwo").html("<h3>" + response.list[9].dt_txt + "</h3>");
-        $(".dayThree").html("<h3>" + response.list[17].dt_txt + "</h3>");
-        $(".dayFour").html("<h3>" + response.list[25].dt_txt + "</h3>");
-        $(".dayFive").html("<h3>" + response.list[33].dt_txt + "</h3>");
+        $(".dateOne").html("<h3>" + response.list[1].dt_txt + "</h3>");
+        $(".humidityOne").html("<h3>" + "Humidity:  " + response.list[1].main.humidity + "%" + "</h3>");
+        $(".tempOne").html("<h3>" + "Temp:  " + response.list[1].main.temp + "</h3>");
+
+        $(".dateTwo").html("<h3>" + response.list[9].dt_txt + "</h3>");
+        $(".humidityTwo").html("<h3>" + "Humidity:  " + response.list[9].main.humidity + "%" + "</h3>");
+        $(".tempTwo").html("<h3>" + "Temp:  " + response.list[9].main.temp + "</h3>");
+
+        $(".dateThree").html("<h3>" + response.list[17].dt_txt + "</h3>");
+        $(".humidityThree").html("<h3>" + "Humidity:  " + response.list[17].main.humidity + "%" + "</h3>");
+        $(".tempThree").html("<h3>" + "Temp:  " + response.list[17].main.temp + "</h3>");
+        
+        
+        $(".dateFour").html("<h3>" + response.list[25].dt_txt + "</h3>");
+        $(".humidityFour").html("<h3>" + "Humidity:  " + response.list[25].main.humidity + "%" + "</h3>");
+        $(".tempFour").html("<h3>" + "Temp:  " + response.list[25].main.temp + "</h3>");
+       
+
+        $(".dateFive").html("<h3>" + response.list[33].dt_txt + "</h3>");
+        $(".humidityFive").html("<h3>" + "Humidity:  " + response.list[33].main.humidity + "%" + "</h3>");
+        $(".tempFive").html("<h3>" + "Temp:  " + response.list[33].main.temp + "</h3>");
+      
     });
   });
 
