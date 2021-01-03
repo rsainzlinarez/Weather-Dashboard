@@ -1,28 +1,71 @@
 body{
-background-color: rgb(98, 98, 228);
+background-color: white;
 }
 
 .searchSection{
-    display: left;
-    background-color: red;
+    position:absolute;
+    background-color: rgb(246, 246, 246);
+    height: 90%;
+    display:block;
+    margin-left: 10px;
+    width:300px;
+
+}
+#city-search{
+    margin-left: 10px;
+    display: block;
+}
+
+#city-input{
+border-radius: 20px;
+height:30px;
+width:auto;
+}
+/* Modifies search for city title */
+#search-title{
+display: block;
+font-size: 22px;
+
+
 }
 /* Modifies the recent cities searched buttons */
 .savedCity{
-    background-color: gray;
+    margin-top: 15px;
+    background-color: rgb(209, 209, 209);
     display: block;
     width: 300px;
     color:white;
     font-size: 20px;
     font-weight: bold;
-    text-align: left;
-    
+    text-align: center;
+    border: solid;
+    border-radius: 20px;
+    border-width: 1px;
+    padding:10px;
+
 }
 .currentConditions{
-display:right;
-background-color:green;
+position: absolute;
+background-color: rgb(246, 246, 246);
+margin-left: 350px;
+height:40%;
+width:auto;
+font-family: calibri;
 
 }
 
 .fiveDayForecast{
-    background-color:blue;
+    /* background-color:blue; */
+    width: auto;
+    margin-top:100px;
+    /* display: inline; */
+}
+
+.days{
+    display: inline-flex;
+    border: solid;
+    height:250px;
+    width:200px;
+    background-color: rgb(2, 112, 255);
+    margin:10px;
 }
