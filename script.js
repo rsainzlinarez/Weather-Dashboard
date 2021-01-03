@@ -17,7 +17,7 @@ function int() {
 
 // ==============================Function to search weather information=======================
 $("#find-city").on("click", function(event){
-    event.preventDefault();  
+    event.preventDefault(); 
 
     // Pushes city searched to citiesList array
     var cityAdd = $("#city-input").val().trim();
@@ -34,9 +34,9 @@ $("#find-city").on("click", function(event){
 
 
 // ==========================Function provides weather information================================
-function weatherInformation(b){
+function weatherInformation(){
     // Get the city entered in seach section
-    var city = $("#city-input").val(); 
+        var city = $("#city-input").val();
     
 
 //   -----------------------------Current Weather Information ajax--------------------------------
@@ -113,11 +113,39 @@ function storeSearches() {
 $( ".savedCity" ).on( "click", function() {
     
     var temporary = $(this).text();
-    alert(temporary);
+   
     
-    weatherInformation(temporary);
-    
-    
+    // weatherInformation(temporary);
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +temporary +"&appid=546de1fd66b329cf4085b588c55671b8";  
+       
+    console.log(queryURL);    
+// Current weather ajax
+$.ajax({
+        url: queryURL,
+        method: "GET"
+     }).then(function(response) {
+         $(".currentCity").html("<h3>" + "Current City: " + response.name + "</h3>");
+        $(".temperatureToday").html("<h3>" + "Temperature:  " + response.main.temp + "</h3>");
+        $(".humidity").html("<h3>" + "Humidity: " + response.main.humidity + "</h3>");
+        $(".windSpeed").html("<h3>" + "Wind Speed: " + response.wind.speed+ "</h3>");
+        // console.log(response);
+});
+
+    // -------------------------------Five Day Weather Information ajax----------------------------------
+    // api query URL
+    var queryURLThree = "https://api.openweathermap.org/data/2.5/forecast?q=" +temporary + "&appid=546de1fd66b329cf4085b588c55671b8";
+
+    // Five day weather ajax
+    $.ajax({
+        url: queryURLThree,
+        method: "Get"
+    }).then(function(response) {
+        $(".dayOne").html("<h3>" + response.list[1].dt_txt + "</h3>");
+        $(".dayTwo").html("<h3>" + response.list[9].dt_txt + "</h3>");
+        $(".dayThree").html("<h3>" + response.list[17].dt_txt + "</h3>");
+        $(".dayFour").html("<h3>" + response.list[25].dt_txt + "</h3>");
+        $(".dayFive").html("<h3>" + response.list[33].dt_txt + "</h3>");
+    });
   });
 
   
