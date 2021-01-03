@@ -1,14 +1,27 @@
 body{
 background-color: white;
 }
+header{
+background-color: rgb(153, 223, 255);
+height: 50px;
+text-align: center;
+font-size: 32px;
+color: white;
+padding-top: 10px;
+font-family: calibri;
+font-weight: bolder;
+margin-left: 35px;
+margin-right: 37px;
+}
 
 .searchSection{
     position:absolute;
-    background-color: rgb(246, 246, 246);
+    background-color: rgb(236, 249, 255);
     height: 90%;
     display:block;
-    margin-left: 10px;
+    margin-left: 35px;
     width:300px;
+    font-family: calibri;
 
 }
 #city-search{
@@ -21,6 +34,14 @@ border-radius: 20px;
 height:30px;
 width:auto;
 }
+
+#find-city{
+border-radius: 30px;
+margin-left: 10px;
+height: 50px;
+background-color: rgb(82, 194, 246);
+color: white;
+}
 /* Modifies search for city title */
 #search-title{
 display: block;
@@ -31,9 +52,9 @@ font-size: 22px;
 /* Modifies the recent cities searched buttons */
 .savedCity{
     margin-top: 15px;
-    background-color: rgb(209, 209, 209);
+    background-color: rgb(95, 200, 248);
     display: block;
-    width: 300px;
+    width: 250px;
     color:white;
     font-size: 20px;
     font-weight: bold;
@@ -42,30 +63,42 @@ font-size: 22px;
     border-radius: 20px;
     border-width: 1px;
     padding:10px;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 .currentConditions{
 position: absolute;
-background-color: rgb(246, 246, 246);
-margin-left: 350px;
-height:40%;
+background-color: rgb(236, 249, 255);
+margin-left: 370px;
+height:300px;
 width:auto;
 font-family: calibri;
+color:rgb(112, 111, 111);
+margin-right: 25px;
+
 
 }
 
 .fiveDayForecast{
     /* background-color:blue; */
     width: auto;
-    margin-top:100px;
-    /* display: inline; */
+    margin-top:35px;
+    display:inline-flex;
+    background-color: rgb(236, 249, 255);
+    padding-top: 60px;
 }
 
 .days{
     display: inline-flex;
     border: solid;
-    height:250px;
+    height:300px;
     width:200px;
-    background-color: rgb(2, 112, 255);
+    background-color: rgb(95, 200, 248);   
     margin:10px;
+    border-radius: 40px;
+    display: block;
+    border-color:white;
+    color:white;
+        
 }
