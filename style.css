@@ -1,0 +1,28 @@
+body{
+background-color: rgb(98, 98, 228);
+}
+
+.searchSection{
+    display: left;
+    background-color: red;
+}
+/* Modifies the recent cities searched buttons */
+.savedCity{
+    background-color: gray;
+    display: block;
+    width: 300px;
+    color:white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    
+}
+.currentConditions{
+display:right;
+background-color:green;
+
+}
+
+.fiveDayForecast{
+    background-color:blue;
+}
