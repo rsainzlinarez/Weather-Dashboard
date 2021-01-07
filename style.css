@@ -10,8 +10,10 @@ color: white;
 padding-top: 10px;
 font-family: calibri;
 font-weight: bolder;
-margin-left: 35px;
 margin-right: 37px;
+margin-left: 35px;
+
+width:auto;
 }
 
 .searchSection{
@@ -72,10 +74,10 @@ position: absolute;
 background-color: rgb(236, 249, 255);
 margin-left: 370px;
 height:300px;
-width:auto;
+width:max-content;
 font-family: calibri;
 color:rgb(112, 111, 111);
-margin-right: 25px;
+margin-right: 35px;
 
 
 }
