@@ -1,17 +1,19 @@
-    // var weather = $(this).attr("data-name");
+
 // Global Variables
 var citiesList = [];
 var lastCity = '';
 
 // ========================Initial function to gets search history=======================
 function int() {
+    // Get the saved information from local storage
     var savedCities = JSON.parse(localStorage.getItem("citiesList"));
 
     $("<button>").html(savedCities);
  
     if (savedCities !== null) {
-     citiesList = savedCities;
-   }
+        citiesList = savedCities;
+    }
+    // Calls render buttons function to
    renderButtons();
  }
  int();
@@ -37,11 +39,6 @@ $("#find-city").on("click", function(event){
 // ==========================Function provides weather information================================
 function weatherInformation(city){
     
-    // Get the city entered in seach section
-       
-        // console.log(city);
-        // (300K − 273.15) × 9/5 + 32 = -459.7°F
-
 //   -----------------------------Current Weather Information ajax--------------------------------
         // api query URL
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +city +"&appid=546de1fd66b329cf4085b588c55671b8";  
@@ -52,17 +49,15 @@ function weatherInformation(city){
             url: queryURL,
             method: "GET"
          }).then(function(response) {
-             $(".currentCity").html("<h4>"  + response.name + "</h4>");
+            // Displays current weather information data
+            $(".currentCity").html("<h4>"  + response.name + "</h4>");
             $(".temperatureToday").html("<h4>" + "Temperature:  " + response.main.temp + "</h4>");
             $(".humidity").html("<h4>" + "Humidity: " + response.main.humidity + "</h4>");
             $(".windSpeed").html("<h4>" + "Wind Speed: " + response.wind.speed+ "</h4>");
-            // console.log(response);
             getUvIndex(response.coord.lat, response.coord.lon);
-            // console.log(response.coord.lat, response.coord.lon);
-            console.log(response.weather[0].icon);
-            // console.log("http://openweathermap.org/img/wn/" + response.weather[1].icon + "@2x.png");
+            // Displays weather icon
             $(".weatherIcon").html("<img src=http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png >");
-            // $('.weatherIcon').css({'display': 'inline', 'margin': '0px'});
+            // modifies weather tags position
             $('h4').css({'margin': '5px', 'padding': '0', 'margin-left': '5px'});
            
     });
@@ -70,16 +65,14 @@ function weatherInformation(city){
 // -------------------------------Five Day Weather Information ajax----------------------------------
     // api query URL
     var queryURLThree = "https://api.openweathermap.org/data/2.5/forecast?q=" +city + "&appid=546de1fd66b329cf4085b588c55671b8";
-    console.log(queryURLThree);
-    
-    // var queryImage = "http://openweathermap.org/img/wn/" + response.list.weather + "@2x.png";
-        
+    console.log(queryURLThree);       
 
-    // Five day weather ajax
+    // Five day weather ajax function
     $.ajax({
         url: queryURLThree,
         method: "Get"
     }).then(function(response) {
+        // Displays five weather information data
         $(".dateOne").html("<h3>" + response.list[1].dt_txt + "</h3>");
         $(".humidityOne").html("<h3>" + "Humidity:  " + response.list[1].main.humidity + "%" + "</h3>");
         $(".tempOne").html("<h3>" + "Temp:  " + response.list[1].main.temp + "</h3>");
@@ -107,14 +100,12 @@ function weatherInformation(city){
         $(".humidityFive").html("<h3>" + "Humidity:  " + response.list[33].main.humidity + "%" + "</h3>");
         $(".tempFive").html("<h3>" + "Temp:  " + response.list[33].main.temp + "</h3>");
         $(".iconFive").html("<img src=http://openweathermap.org/img/wn/" + response.list[33].weather[0].icon + "@2x.png >");
-       
-
-        
+               
     });
 }
 
 
-// =====================================UV Index Ajax Function=====================================
+// =====================================UV Index Ajax Function========================================
 function getUvIndex(lat, lon) {
     // api query url
     var queryURLTwo = " https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,daily&appid=546de1fd66b329cf4085b588c55671b8";
@@ -123,10 +114,11 @@ function getUvIndex(lat, lon) {
             url: queryURLTwo,
             method: "GET"
     }).then(function(response) {
+            // Display UV Index number
             $(".colorWarning").html("<h4>" + response.current.uvi + "</h4>");
+            // Displays UV Index color warning
             if(response.current.uvi < 2){
             $('.colorWarning').css({'color': 'green', 'display': 'inline-block'});
-                
             }else if (response.current.uvi >2 && response.current.uvi <5){
                 $('.colorWarning').css({'color': 'orange'});
             }else if (response.current.uvi > 5){
@@ -159,11 +151,10 @@ function storeSearches() {
 }
 
 
-// =============================================================================
+// ========================Function to retrive weather information from saved buttons==================
 $(document).on('click', '.savedCity', function() {
     
     var temporary = $(this).data('name');
-    // console.log(temporary);
     weatherInformation(temporary);
 
   });
