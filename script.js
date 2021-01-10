@@ -54,14 +54,17 @@ function weatherInformation(city){
          }).then(function(response) {
              $(".currentCity").html("<h4>"  + response.name + "</h4>");
             $(".temperatureToday").html("<h4>" + "Temperature:  " + response.main.temp + "</h4>");
-            $(".humidity").html("<h3>" + "Humidity: " + response.main.humidity + "</h3>");
-            $(".windSpeed").html("<h3>" + "Wind Speed: " + response.wind.speed+ "</h3>");
+            $(".humidity").html("<h4>" + "Humidity: " + response.main.humidity + "</h4>");
+            $(".windSpeed").html("<h4>" + "Wind Speed: " + response.wind.speed+ "</h4>");
             // console.log(response);
             getUvIndex(response.coord.lat, response.coord.lon);
             // console.log(response.coord.lat, response.coord.lon);
             console.log(response.weather[0].icon);
             // console.log("http://openweathermap.org/img/wn/" + response.weather[1].icon + "@2x.png");
             $(".weatherIcon").html("<img src=http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png >");
+            // $('.weatherIcon').css({'display': 'inline', 'margin': '0px'});
+            $('h4').css({'margin': '5px', 'padding': '0', 'margin-left': '5px'});
+           
     });
 
 // -------------------------------Five Day Weather Information ajax----------------------------------
@@ -120,7 +123,17 @@ function getUvIndex(lat, lon) {
             url: queryURLTwo,
             method: "GET"
     }).then(function(response) {
-            $(".uvIndex").html("<h3>" + "UV Index:  " + response.current.uvi + "</h3>");
+            $(".colorWarning").html("<h4>" + response.current.uvi + "</h4>");
+            if(response.current.uvi < 2){
+            $('.colorWarning').css({'color': 'green', 'display': 'inline-block'});
+                
+            }else if (response.current.uvi >2 && response.current.uvi <5){
+                $('.colorWarning').css({'color': 'orange'});
+            }else if (response.current.uvi > 5){
+                $('.colorWarning').css({'color': 'red'});
+            };
+            $('span').css({'margin-left': '2px'});
+            $('.uvIndex').css({'margin': '10px'});
             // console.log(response);
     });
 }

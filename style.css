@@ -2,7 +2,7 @@ body{
 background-color: white;
 }
 header{
-background-color: rgb(153, 223, 255);
+background-color:  rgb(82, 194, 246);
 height: 50px;
 text-align: center;
 font-size: 32px;
@@ -10,11 +10,13 @@ color: white;
 padding-top: 10px;
 font-family: calibri;
 font-weight: bolder;
-margin-right: 37px;
+margin-right: 20px;
 margin-left: 35px;
+border-radius: 50px;
 
 width:auto;
 }
+
 
 .searchSection{
     position:absolute;
@@ -24,6 +26,7 @@ width:auto;
     margin-left: 35px;
     width:300px;
     font-family: calibri;
+    border-radius: 50px;
 
 }
 #city-search{
@@ -48,6 +51,7 @@ color: white;
 #search-title{
 display: block;
 font-size: 22px;
+margin-left: 10px;
 
 
 }
@@ -78,7 +82,7 @@ width:max-content;
 font-family: calibri;
 color:rgb(112, 111, 111);
 margin-right: 35px;
-
+border-radius: 50px;
 
 }
 
@@ -89,6 +93,7 @@ margin-right: 35px;
     display:inline-flex;
     background-color: rgb(236, 249, 255);
     padding-top: 60px;
+    border-radius: 50px;
 }
 
 .days{
@@ -103,4 +108,8 @@ margin-right: 35px;
     border-color:white;
     color:white;
         
+}
+
+.weatherIcon{
+    display: inline-block;
 }
