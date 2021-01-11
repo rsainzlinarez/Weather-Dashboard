@@ -58,7 +58,8 @@ function weatherInformation(city){
             // Displays weather icon
             $(".weatherIcon").html("<img src=http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png >");
             // modifies weather tags position
-            $('h4').css({'margin': '5px', 'padding': '0', 'margin-left': '5px'});
+            $('h4').css({'margin': '1px', 'padding': '0', 'margin-left': '5px'});
+            $('.displayCurrent').css({'margin-top': '25px'});
            
     });
 
@@ -100,6 +101,9 @@ function weatherInformation(city){
         $(".humidityFive").html("<h3>" + "Humidity:  " + response.list[33].main.humidity + "%" + "</h3>");
         $(".tempFive").html("<h3>" + "Temp:  " + response.list[33].main.temp + "</h3>");
         $(".iconFive").html("<img src=http://openweathermap.org/img/wn/" + response.list[33].weather[0].icon + "@2x.png >");
+
+
+        $(".fiveDayForecast").css({"margin-top": "40px"});
                
     });
 }
@@ -122,10 +126,10 @@ function getUvIndex(lat, lon) {
             }else if (response.current.uvi >2 && response.current.uvi <5){
                 $('.colorWarning').css({'color': 'orange'});
             }else if (response.current.uvi > 5){
-                $('.colorWarning').css({'color': 'red'});
+                $('.colorWarning').css({'color': 'red', 'margin': '0px'});
             };
             $('span').css({'margin-left': '2px'});
-            $('.uvIndex').css({'margin': '10px'});
+            $('.uvIndex').css({'margin': '0px', 'margin-left': '10px'});
             // console.log(response);
     });
 }

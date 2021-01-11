@@ -20,10 +20,11 @@ header{
 /* Modifies search city section */
 .searchSection{
     position:absolute;
+    margin-top: 50px;
     background-color: rgb(236, 249, 255);
-    height: 90%;
+    height: 81%;
     display:block;
-    margin-left: 35px;
+    margin-left: 200px;
     width:300px;
     font-family: calibri;
     border-radius: 50px;
@@ -70,29 +71,35 @@ header{
     padding:10px;
     margin-left: auto;
     margin-right: auto;
+    
 
 }
 /* Modifies current weather display section */
 .currentConditions{
     position: absolute;
     background-color: rgb(236, 249, 255);
-    margin-left: 370px;
-    height:300px;
+    margin-left: 550px;
+    margin-top: 50px;
+    height:400px;
     width:max-content;
     font-family: calibri;
     color:rgb(112, 111, 111);
     margin-right: 35px;
     border-radius: 50px;
+    margin-bottom: 0px;
+
 
 }
 /* Modifies section for five day forecast */
 .fiveDayForecast{
     width: auto;
-    margin-top:35px;
+    margin-top:100px;
     display:inline-flex;
     background-color: rgb(236, 249, 255);
-    padding-top: 60px;
+    padding-top: 15px;
     border-radius: 50px;
+    
+    
 }
 /* Modifies subsections for each of the five days */
 .days{
@@ -106,9 +113,19 @@ header{
     display: block;
     border-color:white;
     color:white;
+    margin-top:40px;
         
 }
 /* Modifies current weather icon */
 .weatherIcon{
     display: inline-block;
+}
+/* Modifies section headers */
+.sectionHeaders{
+    color: rgb(95, 200, 248);   
+    font-size:24px;
+     position:absolute; 
+    margin-left: 10px; 
+    margin-top: 0;  
+    
 }
