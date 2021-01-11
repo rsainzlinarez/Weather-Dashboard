@@ -6,7 +6,7 @@ saved so user can have easy access to information.
 # Installation
 Follow the link below to access the website.
 
-[Website-Link](https://rsainzlinarez.github.io/Weather-Dashboard/)
+[Weather Dashboard Site](https://rsainzlinarez.github.io/Weather-Dashboard/)
 
 # Usage
 On search section, search for city to display current, and five day forecast.
